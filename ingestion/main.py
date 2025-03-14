@@ -1,14 +1,19 @@
 
-from utils.ingestion import APIDataIngestion, CSVDataIngestion
-from utils.logger import logger
-from utils.storage import DataStorage
+from ingestion.utils.ingestion import APIDataIngestion, CSVDataIngestion
+from ingestion.utils.logger import logger
+from ingestion.utils.storage import DataStorage
 
 # Source paths
-csv_path = "../Dataset/Telco-Customer-Churn.csv"
+csv_path = \
+    "/Users/akash/Projects/BITS/DMML/Customer Churn Prediction/Dataset/Telco-Customer-Churn.csv"
 api_url = "https://my.api.mockaroo.com/users"
 # Output path
-raw_path = "../Dataset/Raw Data"
-storage_path = "../Dataset"
+raw_path = \
+    "/Users/akash/Projects/BITS/DMML/Customer Churn Prediction/Dataset/Raw Data"
+
+storage_path = \
+    "/Users/akash/Projects/BITS/DMML/Customer Churn Prediction/Dataset"
+# "../Dataset"
 
 API_HEADERS = {"X-API-Key": "2a258740"}
 
@@ -29,8 +34,4 @@ def ingest_csv(csv_path, output_dir ):
     logger.info("Starting Data Segregation")
     storage.store(file)
     logger.info("Data Segregation complete")
-
-if __name__ == "__main__":
-    ingest_api(api_url, API_HEADERS, raw_path)
-    ingest_csv(csv_path, raw_path)
 

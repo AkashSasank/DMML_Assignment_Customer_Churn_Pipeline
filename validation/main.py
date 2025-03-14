@@ -62,6 +62,3 @@ def validate(config, source_path, report_path):
             validator.generate_data_quality_report(reports, os.path.join(path, file.split('.')[0] + '.xlsx'))
 
 
-
-if __name__ == "__main__":
-    validate(config=config, source_path=source_path, report_path=report_path)

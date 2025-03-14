@@ -1,9 +1,9 @@
 import os
 import json
-from utils.preprocess import DataProcessor
+from cleaning.utils.preprocess import DataProcessor
 
-source_path = "../Dataset/Customer Churn Data"
-output_path = "../Dataset/Processed Data"
+# source_path = "../Dataset/Customer Churn Data"
+# output_path = "../Dataset/Processed Data"
 
 # Preprocessing
 # Example configuration dictionary for data preprocessing
@@ -50,7 +50,3 @@ def process(source_path, output_path, config):
             f.write(json.dumps(processor.config))
         with open(os.path.join(output_path, "scale_mapping.json"), 'w') as f:
             f.write(json.dumps(processor.scaler_mapping))
-
-
-if __name__ == "__main__":
-    process(source_path=source_path, output_path=output_path, config=conf)
